@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Week3Assessment.Controllers;
+
+class program
+{
+    public async static Task Main()
+    {
+        await ActionController.Init();
+    }
+}

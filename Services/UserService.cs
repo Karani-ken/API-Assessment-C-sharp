@@ -19,9 +19,9 @@ namespace Week3Assessment.Services
         {
             _httpClient = new HttpClient();
         }
-        public async Task<List<Comments>> GetAllCommentsAsync(int postId)
+        public async Task<List<Comments>> GetAllCommentsAsync()
         {
-            var response = await _httpClient.GetAsync(_comments + "/" + postId);
+            var response = await _httpClient.GetAsync(_comments);
             var Comments = JsonConvert.DeserializeObject<List<Comments>>(await response.Content.ReadAsStringAsync());
             if (response.IsSuccessStatusCode)
             {
@@ -33,10 +33,10 @@ namespace Week3Assessment.Services
         public async Task<List<User>> GetAllUsersAsync()
         {
             var response = await _httpClient.GetAsync(_users);
-            var Users = JsonConvert.DeserializeObject<List<User>>(await response.Content.ReadAsStringAsync());
+            var users = JsonConvert.DeserializeObject<List<User>>(await response.Content.ReadAsStringAsync());
             if (response.IsSuccessStatusCode)
             {
-                return Users;
+                return users;
             }
             throw new Exception("Could not Fetch users");
         }

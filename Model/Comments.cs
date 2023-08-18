@@ -8,7 +8,7 @@ namespace Week3Assessment.Model
 {
     public class Comments
     {
-        public int Id { get; set; }
+        public string id { get; set; }
         public int postId { get; set; }
         public string name { get; set; }
         public string email { get; set; }
